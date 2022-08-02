@@ -7,8 +7,9 @@ export function mount(parent, child) {
   }
 }
 export function applyAttributes(element, attributes) {
+  // 这里需要把类似 strokeWidth 的属性转换成 stroke-width 的形式
   for (const [key, value] of Object.entries(attributes)) {
-    const kebabCaseKey = key.replace(/[A-Z]/g, (d) => `-${d.toLocaleUpperCase()}`);
+    const kebabCaseKey = key.replace(/[A-Z]/g, (d) => `-${d.toLocaleLowerCase()}`);
     element.setAttribute(kebabCaseKey, value);
   }
 }
